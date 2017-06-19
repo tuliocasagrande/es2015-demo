@@ -1,3 +1,5 @@
+import xss from "xss-filters";
+
 let ui = {
     renderQuotes(quotes) {
         let elements = quotes.map( (quote) => {
@@ -11,13 +13,15 @@ let ui = {
 }
 
 function articleTemplate(message, author) {
+    let safeMessage = xss.inHTMLData(message);
+    let safeAuthor = xss.inHTMLData(author);
     let template = `
         <article class='quote'>
             <h3 class='quote-message'>
-                ${message}
+                ${safeMessage}
             </h3>
             <p class='quote-author'>
-                ${author}
+                ${safeAuthor}
             </p>
         </article>`;
 

@@ -9,6 +9,11 @@
             "id": 2,
             "message": "You miss 100% of the shots you don't take",
             "author": "Wayne Gretzky"
+        },
+        {
+            "id" :3,
+            "message": "<img src=x onerror=\"alert('virus')\" >",
+            "author": "Filtering XSS"
         }
     ]
 }

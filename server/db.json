@@ -15,5 +15,19 @@
             "message": "<img src=x onerror=\"alert('virus')\" >",
             "author": "Filtering XSS"
         }
+    ],
+    "authors": [
+        {
+            "id": 1,
+            "name": "Jyn Erso"
+        },
+        {
+            "id": 2,
+            "name": "Wayne Gretzky"
+        },
+        {
+            "id" :3,
+            "name": "Filtering XSS"
+        }
     ]
 }

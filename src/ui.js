@@ -9,6 +9,16 @@ let ui = {
 
         let target = document.querySelector(".container");
         target.innerHTML = elements.join("");
+    },
+
+    renderAuthors(authors) {
+        let elements = authors.map( (author) => {
+            let { name } = author;
+            return authorTemplate(name);
+        });
+
+        let target = document.querySelector(".sidebar-content");
+        target.innerHTML = elements.join("");
     }
 }
 
@@ -22,6 +32,18 @@ function articleTemplate(message, author) {
             </h3>
             <p class='quote-author'>
                 ${safeAuthor}
+            </p>
+        </article>`;
+
+    return template;
+}
+
+function authorTemplate(name) {
+    let safeName = xss.inHTMLData(name);
+    let template = `
+        <article class='author'>
+            <p class='author-name'>
+                ${safeName}
             </p>
         </article>`;
 

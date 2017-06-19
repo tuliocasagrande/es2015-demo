@@ -54,9 +54,23 @@ Object.defineProperty(exports, "__esModule", {
 });
 var ui = {
     renderQuotes: function renderQuotes(quotes) {
-        console.log(quotes);
+        var elements = quotes.map(function (quote) {
+            var message = quote.message,
+                author = quote.author;
+
+            return articleTemplate(message, author);
+        });
+
+        var target = document.querySelector(".container");
+        target.innerHTML = elements.join("");
     }
 };
+
+function articleTemplate(message, author) {
+    var template = "\n        <article class='quote'>\n            <h3 class='quote-message'>\n                " + message + "\n            </h3>\n            <p class='quote-author'>\n                " + author + "\n            </p>\n        </article>";
+
+    return template;
+}
 
 exports.default = ui;
 

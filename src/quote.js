@@ -5,7 +5,7 @@ let Quote = {
             let request = new XMLHttpRequest();
 
             request.open("GET", uri, true);
-            
+
             request.onload = () => {
                 if (request.status >= 200 && request.status < 400) {
                     resolve(JSON.parse(request.response)); }

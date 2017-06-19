@@ -1,18 +1,23 @@
-# Babel with Gulp
+# ES2015 Demo
 
-Starter code for transpiling ES2015 (including modules) with Babel, Gulp and Browserify.
+Sample app built using ES2015 features, gulp and json-server.
 
+Made by following the excellent screencast: https://www.codeschool.com/screencasts/build-a-forum-web-app-with-es2015
 
 # Installing
 
 1. Clone the repo
-2. `npm install -g gulp` to install Gulp globally.
+2. `npm install -g json-server` for the API.
 3. `npm install` to resolve project dependencies.
 
-# Using
+# Running
 
-Run `gulp` from the command line and you are good to go!
+First, run the API with `json-server server/db.json`
 
-The project is currently setup to transpile code under the _/src_ folder using the
-_/src/app.js_ file as an entry point.
+Then open up `index.html`
 
+# Developing
+
+Install `gulp` globally for transpiling ES2015: `npm install -g gulp`
+
+Run `gulp watch` from the command line and you are good to go!

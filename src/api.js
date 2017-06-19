@@ -10,7 +10,8 @@ let API = {
 
             request.onload = () => {
                 if (request.status >= 200 && request.status < 400) {
-                    resolve(JSON.parse(request.response)); }
+                    resolve(JSON.parse(request.response));
+                }
             };
 
             request.onerror = () => {

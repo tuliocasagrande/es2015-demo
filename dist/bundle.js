@@ -1204,7 +1204,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Quote = {
     findAll: function findAll() {
-        return _api2.default.fetch('quotes');
+        return _api2.default.fetch('quotes?_expand=author');
     }
 };
 
@@ -1229,7 +1229,7 @@ var ui = {
             var message = quote.message,
                 author = quote.author;
 
-            return articleTemplate(message, author);
+            return articleTemplate(message, author.name);
         });
 
         var target = document.querySelector(".container");

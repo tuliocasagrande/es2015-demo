@@ -3,17 +3,17 @@
         {
             "id": 1,
             "message": "Rebellions are built on hope",
-            "author": "Jyn Erso"
+            "authorId": 1
         },
         {
             "id": 2,
             "message": "You miss 100% of the shots you don't take",
-            "author": "Wayne Gretzky"
+            "authorId": 2
         },
         {
             "id" :3,
             "message": "<img src=x onerror=\"alert('virus')\" >",
-            "author": "Filtering XSS"
+            "authorId": 3
         }
     ],
     "authors": [

@@ -4,7 +4,7 @@ let ui = {
     renderQuotes(quotes) {
         let elements = quotes.map( (quote) => {
             let { message, author } = quote;
-            return articleTemplate(message, author);
+            return articleTemplate(message, author.name);
         });
 
         let target = document.querySelector(".container");

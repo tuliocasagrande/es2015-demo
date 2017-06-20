@@ -4,6 +4,8 @@ Sample app built using ES2015 features, gulp and json-server.
 
 Made by following the excellent screencast: https://www.codeschool.com/screencasts/build-a-forum-web-app-with-es2015
 
+![Screenshot](./assets/images/screenshot.png)
+
 # Installing
 
 1. Clone the repo

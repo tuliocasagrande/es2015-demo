@@ -41,11 +41,10 @@ function articleTemplate(message, author) {
 function authorTemplate(name) {
     let safeName = xss.inHTMLData(name);
     let template = `
-        <article class='author'>
-            <p class='author-name'>
-                ${safeName}
-            </p>
-        </article>`;
+        <p class='author-name'>
+            ${safeName}
+        </p>
+        `;
 
     return template;
 }

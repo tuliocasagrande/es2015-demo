@@ -1257,7 +1257,7 @@ function articleTemplate(message, author) {
 
 function authorTemplate(name) {
     var safeName = _xssFilters2.default.inHTMLData(name);
-    var template = "\n        <article class='author'>\n            <p class='author-name'>\n                " + safeName + "\n            </p>\n        </article>";
+    var template = "\n        <p class='author-name'>\n            " + safeName + "\n        </p>\n        ";
 
     return template;
 }

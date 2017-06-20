@@ -1,33 +1,33 @@
 {
-    "quotes": [
-        {
-            "id": 1,
-            "message": "Rebellions are built on hope",
-            "authorId": 1
-        },
-        {
-            "id": 2,
-            "message": "You miss 100% of the shots you don't take",
-            "authorId": 2
-        },
-        {
-            "id" :3,
-            "message": "<img src=x onerror=\"alert('virus')\" >",
-            "authorId": 3
-        }
-    ],
-    "authors": [
-        {
-            "id": 1,
-            "name": "Jyn Erso"
-        },
-        {
-            "id": 2,
-            "name": "Wayne Gretzky"
-        },
-        {
-            "id" :3,
-            "name": "Filtering XSS"
-        }
-    ]
+  "quotes": [
+    {
+      "id": 1,
+      "message": "Rebellions are built on hope",
+      "authorId": 1
+    },
+    {
+      "id": 2,
+      "message": "You miss 100% of the shots you don't take",
+      "authorId": 2
+    },
+    {
+      "id" :3,
+      "message": "<img src=x onerror=\"alert('virus')\" >",
+      "authorId": 3
+    }
+  ],
+  "authors": [
+    {
+      "id": 1,
+      "name": "Jyn Erso"
+    },
+    {
+      "id": 2,
+      "name": "Wayne Gretzky"
+    },
+    {
+      "id" :3,
+      "name": "Filtering XSS"
+    }
+  ]
 }

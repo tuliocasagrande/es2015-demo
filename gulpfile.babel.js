@@ -13,7 +13,7 @@ gulp.task("transpile", () => {
 });
 
 gulp.task("watch", ["transpile"], () => {
-    gulp.watch("src/**/*.js", ["transpile"]);
+  gulp.watch("src/**/*.js", ["transpile"]);
 });
 
 gulp.task("default", ["transpile"]);

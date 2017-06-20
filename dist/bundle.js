@@ -1103,32 +1103,32 @@ exports.uriFragmentInHTMLComment = exports.uriComponentInHTMLComment;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _constants = require("./constants");
 
 var API = {
-    fetch: function fetch(path) {
-        return new Promise(function (resolve, reject) {
-            var uri = _constants.BASE_URI + "/" + path;
-            var request = new XMLHttpRequest();
+  fetch: function fetch(path) {
+    return new Promise(function (resolve, reject) {
+      var uri = _constants.BASE_URI + "/" + path;
+      var request = new XMLHttpRequest();
 
-            request.open("GET", uri, true);
+      request.open("GET", uri, true);
 
-            request.onload = function () {
-                if (request.status >= 200 && request.status < 400) {
-                    resolve(JSON.parse(request.response));
-                }
-            };
+      request.onload = function () {
+        if (request.status >= 200 && request.status < 400) {
+          resolve(JSON.parse(request.response));
+        }
+      };
 
-            request.onerror = function () {
-                reject(new Error("Something went wrong on the API"));
-            };
+      request.onerror = function () {
+        reject(new Error("Something went wrong on the API"));
+      };
 
-            request.send();
-        });
-    }
+      request.send();
+    });
+  }
 };
 
 exports.default = API;
@@ -1151,18 +1151,18 @@ var _ui2 = _interopRequireDefault(_ui);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _quote2.default.findAll().then(_ui2.default.renderQuotes).catch(function (error) {
-    console.log(error);
+  console.log(error);
 });
 
 _author2.default.findAll().then(_ui2.default.renderAuthors).catch(function (error) {
-    console.log(error);
+  console.log(error);
 });
 
 },{"./author":4,"./quote":6,"./ui":7}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _api = require("./api");
@@ -1172,9 +1172,9 @@ var _api2 = _interopRequireDefault(_api);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Authors = {
-    findAll: function findAll() {
-        return _api2.default.fetch('authors');
-    }
+  findAll: function findAll() {
+    return _api2.default.fetch('authors');
+  }
 };
 
 exports.default = Authors;
@@ -1193,7 +1193,7 @@ exports.BASE_URI = BASE_URI;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _api = require("./api");
@@ -1203,9 +1203,9 @@ var _api2 = _interopRequireDefault(_api);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Quote = {
-    findAll: function findAll() {
-        return _api2.default.fetch('quotes?_expand=author');
-    }
+  findAll: function findAll() {
+    return _api2.default.fetch('quotes?_expand=author');
+  }
 };
 
 exports.default = Quote;
@@ -1214,7 +1214,7 @@ exports.default = Quote;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _xssFilters = require("xss-filters");
@@ -1224,42 +1224,42 @@ var _xssFilters2 = _interopRequireDefault(_xssFilters);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ui = {
-    renderQuotes: function renderQuotes(quotes) {
-        var elements = quotes.map(function (quote) {
-            var message = quote.message,
-                author = quote.author;
+  renderQuotes: function renderQuotes(quotes) {
+    var elements = quotes.map(function (quote) {
+      var message = quote.message,
+          author = quote.author;
 
-            return articleTemplate(message, author.name);
-        });
+      return articleTemplate(message, author.name);
+    });
 
-        var target = document.querySelector(".container");
-        target.innerHTML = elements.join("");
-    },
-    renderAuthors: function renderAuthors(authors) {
-        var elements = authors.map(function (author) {
-            var name = author.name;
+    var target = document.querySelector(".container");
+    target.innerHTML = elements.join("");
+  },
+  renderAuthors: function renderAuthors(authors) {
+    var elements = authors.map(function (author) {
+      var name = author.name;
 
-            return authorTemplate(name);
-        });
+      return authorTemplate(name);
+    });
 
-        var target = document.querySelector(".sidebar-content");
-        target.innerHTML = elements.join("");
-    }
+    var target = document.querySelector(".sidebar-content");
+    target.innerHTML = elements.join("");
+  }
 };
 
 function articleTemplate(message, author) {
-    var safeMessage = _xssFilters2.default.inHTMLData(message);
-    var safeAuthor = _xssFilters2.default.inHTMLData(author);
-    var template = "\n        <article class='quote'>\n            <h3 class='quote-message'>\n                " + safeMessage + "\n            </h3>\n            <p class='quote-author'>\n                " + safeAuthor + "\n            </p>\n        </article>";
+  var safeMessage = _xssFilters2.default.inHTMLData(message);
+  var safeAuthor = _xssFilters2.default.inHTMLData(author);
+  var template = "\n    <article class='quote'>\n      <h3 class='quote-message'>\n        " + safeMessage + "\n      </h3>\n      <p class='quote-author'>\n        " + safeAuthor + "\n      </p>\n    </article>";
 
-    return template;
+  return template;
 }
 
 function authorTemplate(name) {
-    var safeName = _xssFilters2.default.inHTMLData(name);
-    var template = "\n        <p class='author-name'>\n            " + safeName + "\n        </p>\n        ";
+  var safeName = _xssFilters2.default.inHTMLData(name);
+  var template = "\n    <p class='author-name'>\n      " + safeName + "\n    </p>\n    ";
 
-    return template;
+  return template;
 }
 
 exports.default = ui;
